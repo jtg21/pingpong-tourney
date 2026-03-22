@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong Tournament</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>Ping Pong Tournament</h1>
+            <nav id="nav">
+                <button class="nav-btn active" data-view="standings">Standings</button>
+                <button class="nav-btn" data-view="matches">Matches</button>
+                <button class="nav-btn" data-view="setup">Setup</button>
+            </nav>
+        </header>
+
+        <main>
+            <!-- SETUP VIEW -->
+            <section id="view-setup" class="view hidden">
+                <h2>Tournament Setup</h2>
+                <div id="team-setup">
+                    <div class="team-card" data-team="0">
+                        <input class="team-name-input" placeholder="Team 1 Name" />
+                        <input class="player-input" placeholder="Player 1" data-idx="0" />
+                        <input class="player-input" placeholder="Player 2" data-idx="1" />
+                        <input class="player-input" placeholder="Player 3" data-idx="2" />
+                    </div>
+                    <div class="team-card" data-team="1">
+                        <input class="team-name-input" placeholder="Team 2 Name" />
+                        <input class="player-input" placeholder="Player 1" data-idx="0" />
+                        <input class="player-input" placeholder="Player 2" data-idx="1" />
+                        <input class="player-input" placeholder="Player 3" data-idx="2" />
+                    </div>
+                    <div class="team-card" data-team="2">
+                        <input class="team-name-input" placeholder="Team 3 Name" />
+                        <input class="player-input" placeholder="Player 1" data-idx="0" />
+                        <input class="player-input" placeholder="Player 2" data-idx="1" />
+                        <input class="player-input" placeholder="Player 3" data-idx="2" />
+                    </div>
+                </div>
+                <button id="save-setup" class="btn primary">Save Teams</button>
+                <button id="reset-tournament" class="btn danger">Reset Tournament</button>
+            </section>
+
+            <!-- STANDINGS VIEW -->
+            <section id="view-standings" class="view">
+                <h2>Standings</h2>
+                <div id="standings-empty" class="empty-state">
+                    <p>No teams set up yet. Go to <strong>Setup</strong> to add teams.</p>
+                </div>
+                <table id="standings-table" class="hidden">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Team</th>
+                            <th>Match W-L</th>
+                            <th>Game W-L</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standings-body"></tbody>
+                </table>
+                <div id="winner-banner" class="hidden"></div>
+            </section>
+
+            <!-- MATCHES VIEW -->
+            <section id="view-matches" class="view hidden">
+                <h2>Matches</h2>
+                <div id="matches-empty" class="empty-state">
+                    <p>No teams set up yet. Go to <strong>Setup</strong> to add teams.</p>
+                </div>
+                <div id="match-list"></div>
+            </section>
+
+            <!-- MATCH PLAY VIEW (overlay) -->
+            <div id="match-overlay" class="hidden">
+                <div class="overlay-content">
+                    <button id="close-overlay" class="btn-close">&times;</button>
+                    <h2 id="match-title"></h2>
+                    <div id="match-status-banner"></div>
+
+                    <div id="active-players">
+                        <div class="active-side">
+                            <h3 id="team-a-label"></h3>
+                            <div id="team-a-players"></div>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="active-side">
+                            <h3 id="team-b-label"></h3>
+                            <div id="team-b-players"></div>
+                        </div>
+                    </div>
+
+                    <div id="score-area">
+                        <div class="score-side">
+                            <div class="score" id="score-a">0</div>
+                            <button class="btn score-btn" id="point-a">+1</button>
+                        </div>
+                        <div class="score-divider">-</div>
+                        <div class="score-side">
+                            <div class="score" id="score-b">0</div>
+                            <button class="btn score-btn" id="point-b">+1</button>
+                        </div>
+                    </div>
+                    <button id="undo-point" class="btn secondary">Undo Last Point</button>
+
+                    <div id="swap-modal" class="hidden">
+                        <h3>Swap a player out</h3>
+                        <p id="swap-prompt"></p>
+                        <div id="swap-options"></div>
+                    </div>
+
+                    <div id="game-log">
+                        <h3>Game Log</h3>
+                        <div id="game-log-entries"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
