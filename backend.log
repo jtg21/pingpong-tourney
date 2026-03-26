@@ -1,0 +1,9 @@
+INFO:     Will watch for changes in these directories: ['/Users/jasper/code/pingpong-tourney/backend']
+INFO:     Uvicorn running on http://0.0.0.0:3001 (Press CTRL+C to quit)
+INFO:     Started reloader process [14597] using StatReload
+INFO:     Started server process [14602]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:62548 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     ::1:0 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     ::1:0 - "GET /api/health HTTP/1.1" 200 OK

@@ -1,0 +1,12 @@
+.claude/tmp/
+.env
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+node_modules/
+.DS_Store
+frontend/dist/
